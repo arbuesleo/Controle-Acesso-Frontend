@@ -39,6 +39,11 @@ angular
         controller: 'PessoaeditaddCtrl',
         controllerAs: 'pessoaEditAdd'
       })
+      .when('/pessoaEdit', {
+        templateUrl: 'views/pessoaedit.html',
+        controller: 'PessoaeditCtrl',
+        controllerAs: 'pessoaEdit'
+      })
       .otherwise({
         redirectTo: '/'
       });
