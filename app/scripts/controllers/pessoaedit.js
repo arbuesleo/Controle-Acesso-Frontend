@@ -12,6 +12,11 @@ angular.module('controleAcessoAppApp')
 
     $scope.pessoaAdd = loadEditPessoa.getPessoa().then(function(data){
         $scope.pessoaAdd = data;
+        if ($scope.pessoaAdd.dataNascimento != null) {
+          $scope.pessoaAdd.dataNascimento = new Date($scope.pessoaAdd.dataNascimento).plus();
+
+        }
+
     });
 
 
