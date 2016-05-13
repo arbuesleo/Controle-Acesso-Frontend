@@ -34,7 +34,7 @@
                   <td>{{pessoas[$index].loguin}}</td>
                   <td>
                   <a ng-href = "#/pessoaEdit">
-                    <button type="button" class="btn btn-link">Editar</button></td>
+                    <button type="button" class="btn btn-link" ng-click = "setIdEdit(pessoas[$index].idPEssoa)">Editar</button></td>
                   </a>
                 </tr>
               </table>

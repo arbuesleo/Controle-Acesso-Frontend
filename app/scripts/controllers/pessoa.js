@@ -8,7 +8,7 @@
  * Controller of the controleAcessoAppApp
  */
 angular.module('controleAcessoAppApp')
-  .controller('PessoaCtrl', function ($scope, $http) {
+  .controller('PessoaCtrl', function ($scope, $http, loadEditPessoa) {
 
 
     $scope.getAllPessoas = function (){
@@ -20,4 +20,8 @@ angular.module('controleAcessoAppApp')
   		);
     }
    $scope.getAllPessoas();
+
+   $scope.setIdEdit = function (id){
+     loadEditPessoa.setId(id);
+   }
   });
