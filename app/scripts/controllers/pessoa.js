@@ -9,7 +9,7 @@
  */
 angular.module('controleAcessoAppApp')
   .controller('PessoaCtrl', function ($scope, $http, loadEditPessoa) {
-
+    $scope.nomeFiltro = "";
 
     $scope.getAllPessoas = function (){
         $http.get("http://localhost:8888/pessoa/findAll").then(function(response){
