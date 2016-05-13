@@ -25,8 +25,7 @@ angular.module('controleAcessoAppApp')
               url: "http://localhost:8888/pessoa/finbById?id="+ this.pessoaId,
               headers: { 'Content-Type': 'application/json' }
           }).then(function (response) {
-              console.log(response.data);
-              return response.data;
+            return response.data;
           }, function (error) {
               return error;
           })

@@ -10,7 +10,7 @@
 angular.module('controleAcessoAppApp')
   .controller('PessoaeditaddCtrl', function ($scope, $http, $location) {
     $scope.pessoaAdd ={
-    "cod": 0,
+    "idPEssoa": 0,
     "nome": "",
     "cpf": "",
     "rg": "",
@@ -23,17 +23,23 @@ angular.module('controleAcessoAppApp')
     "ativo": 1
   }
 
+  $scope.msgModal = "";
+
   $('.modal').on('hidden.bs.modal', function(event) {
      $location.path("/pessoa");
      $scope.$apply();
   })
+
   $scope.savePessoa = function (){
       $http.post("http://localhost:8888/pessoa/add", $scope.pessoaAdd).then(function(response){
+        $scope.msgModal = "Registro Alterado com Sucesso!";
           $('#incluidoSucesso').modal('show');
       }, function(response){
            $scope.name = "Ocorreu um erro ao se conectar ao servidor";
       }
     );
   }
+
+
 
   });

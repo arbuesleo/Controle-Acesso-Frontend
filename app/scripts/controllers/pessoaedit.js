@@ -13,18 +13,32 @@ angular.module('controleAcessoAppApp')
     $scope.pessoaAdd = loadEditPessoa.getPessoa().then(function(data){
         $scope.pessoaAdd = data;
     });
-    
-  $('.modal').on('hidden.bs.modal', function(event) {
-     $location.path("/pessoa");
-     $scope.$apply();
-  })
+
 
   $scope.savePessoa = function (){
       $http.post("http://localhost:8888/pessoa/add", $scope.pessoaAdd).then(function(response){
-          $('#incluidoSucesso').modal('show');
+          $('#alterardoSucesso').modal('show');
+          $scope.pessoaAdd = loadEditPessoa.getPessoa().then(function(data){
+              $scope.pessoaAdd = data;
+          });
       }, function(response){
            $scope.name = "Ocorreu um erro ao se conectar ao servidor";
       }
     );
+  }
+
+ $scope.confirmExclusao = function() {
+   $('#confirmExclusao').modal('show');
+ }
+  $scope.excluirPessoa = function(){
+    $http.get("http://localhost:8888/pessoa/deleteById?id="+ $scope.pessoaAdd.idPEssoa).then(function(response){
+         $('#excluidoSucesso').modal('show').on('hidden.bs.modal', function(event) {
+            $location.path("/pessoa");
+            $scope.$apply();
+         });
+    }, function(response){
+         $scope.name = "Ocorreu um erro ao se conectar ao servidor";
+    }
+  );
   }
   });

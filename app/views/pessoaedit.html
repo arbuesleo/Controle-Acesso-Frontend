@@ -54,12 +54,14 @@
         <input type="password" class="form-control" id="senha" ng-model = "pessoaAdd.senha">
       </div>
     </div>
+    <!--
     <div class="form-group">
         <label for="dataNasc" class="col-sm-2 control-label">Data Nasc. :</label>
         <div class="col-sm-2">
           <input type="date" class="form-control" id="dataNasc" ng-model = "pessoaAdd.dataNascimento">
         </div>
       </div>
+    -->
       <div class="form-group">
           <label for="situacao" class="col-sm-2 control-label">Situação :</label>
           <div class="col-xs-8">
@@ -73,7 +75,7 @@
       <button type="button" class="btn btn-success" ng-click="savePessoa()">
         <span class="glyphicon glyphicon-floppy-saved"></span> Salvar
       </button>
-      <button type="button" class="btn btn-danger" ng-click="">
+      <button type="button" class="btn btn-danger" ng-click="confirmExclusao()">
         <span class="glyphicon glyphicon-floppy-saved"></span> Excluir
       </button>
       <a ng-href="#/pessoa">
@@ -86,7 +88,7 @@
 </form>
 
 
-<div class="modal fade bs-example-modal-sm" role="dialog" data-target="incluidoSucesso" data-backdrop="static" id="incluidoSucesso">
+<div class="modal fade bs-example-modal-sm" role="dialog" data-target="alterardoSucesso" data-backdrop="static" id="alterardoSucesso">
 <div class="modal-dialog modal-sm">
 <div class="modal-content">
 <div class="modal-header">
@@ -94,10 +96,46 @@
 <h4 class="modal-title">Sucesso!</h4>
 </div>
 <div class="modal-body">
-<p>Registro Alterado com Sucesso!</p>
+<p>Registro Alterardo com Sucesso!</p>
 </div>
 <div class="modal-footer">
 <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+</div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade bs-example-modal-sm" role="dialog" data-target="excluidoSucesso" data-backdrop="static" id="excluidoSucesso">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<h4 class="modal-title">Sucesso!</h4>
+</div>
+<div class="modal-body">
+<p>Registro Excluido com Sucesso!</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+</div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade bs-example-modal-sm" role="dialog" data-target="confirmExclusao" id="confirmExclusao">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<h4 class="modal-title">Confirmação!</h4>
+</div>
+<div class="modal-body">
+<p>Deseja realmente excluir o registro?</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="excluirPessoa()">Sim</button>
+<button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
 </div>
 </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
