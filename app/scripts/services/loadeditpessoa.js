@@ -25,6 +25,7 @@ angular.module('controleAcessoAppApp')
               url: "http://localhost:8888/pessoa/finbById?id="+ this.pessoaId,
               headers: { 'Content-Type': 'application/json' }
           }).then(function (response) {
+            response.data.dataNascimento = new Date(response.data.dataNascimento.replace("-","/"));
             return response.data;
           }, function (error) {
               return error;
