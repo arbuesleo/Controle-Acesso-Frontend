@@ -44,6 +44,16 @@ angular
         controller: 'PessoaeditCtrl',
         controllerAs: 'pessoaEdit'
       })
+      .when('/listCartoes', {
+        templateUrl: 'views/listcartoes.html',
+        controller: 'ListcartoesCtrl',
+        controllerAs: 'listCartoes'
+      })
+      .when('/addCartao', {
+        templateUrl: 'views/addcartao.html',
+        controller: 'AddcartaoCtrl',
+        controllerAs: 'addCartao'
+      })
       .otherwise({
         redirectTo: '/'
       });
