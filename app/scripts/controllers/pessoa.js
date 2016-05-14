@@ -8,7 +8,7 @@
  * Controller of the controleAcessoAppApp
  */
 angular.module('controleAcessoAppApp')
-  .controller('PessoaCtrl', function ($scope, $http, loadEditPessoa) {
+  .controller('PessoaCtrl', function ($scope, $http, loadEditPessoa, loadEditCartoesPessoa) {
     $scope.nomeFiltro = "";
 
     $scope.getAllPessoas = function (){

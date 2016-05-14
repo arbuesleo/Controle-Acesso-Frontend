@@ -17,6 +17,10 @@ angular.module('controleAcessoAppApp')
         this.pessoaId = id;
   }
 
+  this.getId = function () {
+      return this.pessoaId;
+  }
+
 
 
   this.getPessoa = function () {

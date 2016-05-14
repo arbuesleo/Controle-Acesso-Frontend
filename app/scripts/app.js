@@ -30,12 +30,12 @@ angular
         controllerAs: 'about'
       })
       .when('/pessoa', {
-        templateUrl: 'views/pessoa.html',
+        templateUrl: 'views/listPessoa.html',
         controller: 'PessoaCtrl',
         controllerAs: 'pessoa'
       })
       .when('/pessoaEditAdd', {
-        templateUrl: 'views/pessoaeditadd.html',
+        templateUrl: 'views/pessoaadd.html',
         controller: 'PessoaeditaddCtrl',
         controllerAs: 'pessoaEditAdd'
       })
@@ -58,6 +58,11 @@ angular
         templateUrl: 'views/editcartao.html',
         controller: 'EditcartaoCtrl',
         controllerAs: 'editCartao'
+      })
+      .when('/cartoesPessoa', {
+        templateUrl: 'views/cartoespessoa.html',
+        controller: 'CartoespessoaCtrl',
+        controllerAs: 'cartoesPessoa'
       })
       .otherwise({
         redirectTo: '/'

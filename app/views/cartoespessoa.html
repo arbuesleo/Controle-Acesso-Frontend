@@ -1,0 +1,39 @@
+<ul class="nav nav-tabs">
+  <li><a ng-href="#/pessoaEdit">Principal</a></li>
+  <li class="active"><a ng-href="#/cartoesPessoa">Cartoes</a></li>
+</ul>
+  </p>
+<div class="">
+
+  <button type="button" class="btn btn-success" ng-click="savePessoa()">
+    <span class="glyphicon glyphicon-plus"></span> Adicionar
+  </button>
+</p>
+  <div class="row-fluid">
+    <div>
+        <table class="table table-striped table-bordered">
+          <tr>
+            <th>Cod.</th>
+            <th>Descrição</th>
+            <th>Tag</th>
+            <th>Situacao</th>
+            <th></th>
+          </tr>
+          <tr ng-repeat = "cartao in cartoesPessoa">
+            <td>{{cartao.idCartao}}</td>
+            <td>{{cartao.descricao}}</td>
+            <td>{{cartao.tag}}</td>
+            <td>
+             <span ng-if="cartao.status == 'A'">  Ativo </span>
+             <span ng-if="cartao.status == 'B'">  Bloqueado </span>
+             <span ng-if="cartao.status == 'P'">  Perdido </span>
+            </td>
+          <td>
+            <a ng-href = "#/editCartao">
+              <button type="button" class="btn btn-danger glyphicon glyphicon-trash" ng-click = "setIdEdit(cartao.idCartao)"> </button></td>
+            </a>
+          </tr>
+        </table>
+  </div>
+</div>
+</div>
