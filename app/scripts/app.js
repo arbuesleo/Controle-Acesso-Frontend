@@ -54,6 +54,11 @@ angular
         controller: 'AddcartaoCtrl',
         controllerAs: 'addCartao'
       })
+      .when('/editCartao', {
+        templateUrl: 'views/editcartao.html',
+        controller: 'EditcartaoCtrl',
+        controllerAs: 'editCartao'
+      })
       .otherwise({
         redirectTo: '/'
       });

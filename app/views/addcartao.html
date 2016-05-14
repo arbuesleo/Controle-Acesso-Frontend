@@ -1,0 +1,61 @@
+<div class="row-fluid">&nbsp;</div>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="cod" class="col-sm-2 control-label">Cod. :</label>
+      <div class="col-sm-1">
+        <input type="number" class="form-control" id="cod" ng-disabled="true">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="nome" class="col-sm-2 control-label">Descrição :</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" id="nome" ng-model = "cartaoAdd.descricao">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="cpf" class="col-sm-2 control-label">TAG :</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" id="cpf" ng-model = "cartaoAdd.tag">
+      </div>
+    </div>
+      <div class="form-group">
+          <label for="situacao" class="col-sm-2 control-label">Situação :</label>
+          <div class="col-xs-8">
+            <input type="radio" ng-model="cartaoAdd.status" value = "A"> Ativo
+            <input type="radio" ng-model="cartaoAdd.status" value = "B"> Bloqueado
+            <input type="radio" ng-model="cartaoAdd.status" value = "P"> Perdido
+          </div>
+      </div>
+
+    <div class="col-sm-offset-2 col-sm-10">
+
+      <button type="button" class="btn btn-success" ng-click="saveCartao()">
+        <span class="glyphicon glyphicon-floppy-saved"></span> Salvar
+      </button>
+
+      <a ng-href="#/listCartoes">
+        <button type="button" class="btn btn-primary">
+          <span class="glyphicon glyphicon-log-out"></span> Sair
+        </button>
+      </a>
+    </div>
+
+</form>
+
+
+<div class="modal fade bs-example-modal-sm" role="dialog" data-target="incluidoSucesso" data-backdrop="static" id="incluidoSucesso">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Sucesso!</h4>
+      </div>
+      <div class="modal-body">
+        <p>Registro Incluido com Sucesso!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>

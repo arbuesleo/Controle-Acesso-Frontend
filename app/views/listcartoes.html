@@ -3,11 +3,11 @@
           <div class="form-group">
             <div class="col-xs-6">
               <a ng-href ="#/addCartao">
-                <button type="button" class="btn btn-success" ngRoute="#/pessoaEditAdd">
+                <button type="button" class="btn btn-success" ngRoute="#/addCartao">
                   <span class="glyphicon glyphicon-plus"></span> Novo
                 </button>
               </a>
-                <button type="button" class="btn btn-info" ng-click="getAllCatoes()">
+                <button type="button" class="btn btn-info" ng-click="getAllCartoes()">
                   <span class="glyphicon glyphicon-refresh"></span> Atualizar
                 </button>
             </div>
@@ -39,8 +39,8 @@
                    <span ng-if="cartao.status == 'P'">  Perdido </span>
                   </td>
                 <td>
-                  <a ng-href = "#/pessoaEdit">
-                    <button type="button" class="btn btn-primary glyphicon glyphicon-edit" ng-click = "setIdEdit(pessoa.idPEssoa)"> Editar</button></td>
+                  <a ng-href = "#/editCartao">
+                    <button type="button" class="btn btn-primary glyphicon glyphicon-edit" ng-click = "setIdEdit(cartao.idCartao)"> Editar</button></td>
                   </a>
                 </tr>
               </table>
