@@ -64,6 +64,11 @@ angular
         controller: 'CartoespessoaCtrl',
         controllerAs: 'cartoesPessoa'
       })
+      .when('/visualizaAcessos', {
+        templateUrl: 'views/visualizaacessos.html',
+        controller: 'VisualizaacessosCtrl',
+        controllerAs: 'visualizaAcessos'
+      })
       .otherwise({
         redirectTo: '/'
       });
