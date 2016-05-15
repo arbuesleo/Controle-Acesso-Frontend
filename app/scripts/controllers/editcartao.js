@@ -9,7 +9,7 @@
  */
 angular.module('controleAcessoAppApp')
   .controller('EditcartaoCtrl', function ($scope, $location, $http, loadEditCartao) {
-$('#alertErro').hide();
+
 $scope.loadPesoaInService = function(){
       $scope.cartaoEdit = loadEditCartao.getCartao().then(function(data){
         $scope.cartaoEdit = data;
@@ -23,7 +23,7 @@ $scope.loadPesoaInService();
               $('#alterardoSucesso').modal('show');
                 $scope.loadPesoaInService();
           }, function(response){
-          console.log("Erro srv " + response.status " - " + response.statusText);
+          console.log("Erro srv " + response.status + " - " + response.statusText);
           }
         );
       }
@@ -39,7 +39,7 @@ $scope.loadPesoaInService();
                 $scope.$apply();
              });
         }, function(response){
-            console.log("Erro srv " + response.status " - " + response.statusText);
+            console.log("Erro srv " + response.status + " - " + response.statusText);
         }
       );
       }

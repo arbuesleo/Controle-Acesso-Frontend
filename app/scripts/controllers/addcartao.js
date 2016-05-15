@@ -9,7 +9,7 @@
  */
 angular.module('controleAcessoAppApp')
   .controller('AddcartaoCtrl', function ($scope, $http, $location) {
-    $('#alertErro').hide();
+
     $scope.cartaoAdd ={
       "tag": "",
       "status": "A",
@@ -23,7 +23,7 @@ angular.module('controleAcessoAppApp')
                $scope.$apply();
             });
         }, function(response){
-              console.log("Erro srv " + response.status " - " + response.statusText);
+              console.log("Erro srv " + response.status + " - " + response.statusText);
         }
       );
     }

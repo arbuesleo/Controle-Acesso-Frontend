@@ -9,7 +9,7 @@
  */
 angular.module('controleAcessoAppApp')
   .controller('PessoaeditaddCtrl', function ($scope, $http, $location) {
-    $('#alertErro').hide();
+
 
     $scope.pessoaAdd ={
     "idPEssoa": 0,
@@ -37,7 +37,7 @@ angular.module('controleAcessoAppApp')
         $scope.msgModal = "Registro Alterado com Sucesso!";
           $('#incluidoSucesso').modal('show');
       }, function(response){
-        console.log("Erro srv " + response.status " - " + response.statusText);
+        console.log("Erro srv " + response.status + " - " + response.statusText);
       }
     );
   }

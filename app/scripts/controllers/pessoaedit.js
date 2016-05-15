@@ -9,7 +9,7 @@
  */
 angular.module('controleAcessoAppApp')
   .controller('PessoaeditCtrl', function ($scope, $http, $location, loadEditPessoa) {
-    $('#alertErro').hide();
+
     $scope.pessoaAdd = loadEditPessoa.getPessoa().then(function(data){
         $scope.pessoaAdd = data;
       });
@@ -22,7 +22,7 @@ angular.module('controleAcessoAppApp')
               $scope.pessoaAdd = data;
           });
       }, function(response){
-      console.log("Erro srv " + response.status " - " + response.statusText);
+      console.log("Erro srv " + response.status + " - " + response.statusText);
       }
     );
   }
@@ -37,7 +37,7 @@ angular.module('controleAcessoAppApp')
             $scope.$apply();
          });
     }, function(response){
-    console.log("Erro srv " + response.status " - " + response.statusText);
+    console.log("Erro srv " + response.status + " - " + response.statusText);
     }
   );
   }
