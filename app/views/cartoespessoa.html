@@ -8,6 +8,11 @@
   <button type="button" class="btn btn-success" ng-click="getCartoesDisp()">
     <span class="glyphicon glyphicon-plus"></span> Adicionar
   </button>
+  <a ng-href="#/pessoa">
+    <button type="button" class="btn btn-primary">
+      <span class="glyphicon glyphicon-log-out"></span> Sair
+    </button>
+  </a>
 </p>
   <div class="row-fluid">
     <div>
@@ -38,18 +43,6 @@
 </div>
 </div>
 
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <label for="nomeFiltro" class="col-xs-2 control-label">Pesquisa: </label>
-      <div class = "col-xs-4">
-        <input type="text" class="form-control" id="filtroCartoes" ng-model = "filtroCartoes">
-      </div>
-      <div class="row-fluid">&nbsp;</div>
-
-    </div>
-  </div>
-</div>
 
   <div class="modal fade bs-example-modal-lg" id="modalListCartoes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-lg" role="document">
@@ -84,13 +77,13 @@
             </td>
           <td>
             <a ng-href = "">
-              <button type="button" class="btn btn-success glyphicon glyphicon-plus" ng-click = ""></button></td>
+              <button type="button" class="btn btn-success glyphicon glyphicon-plus" ng-click = "setCartaoPessoa(cartao.idCartao)"></button></td>
             </a>
           </tr>
         </table>
       </div>
       <div class="modal-footer modal-lg">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Sair</button>
       </div>
     </div>
   </div>

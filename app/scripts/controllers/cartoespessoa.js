@@ -35,7 +35,6 @@ angular.module('controleAcessoAppApp')
 $scope.getCartoesDisp = function () {
 
   $http.get("http://localhost:8888/cartao/findDisponiveis").then(function(response){
-
     $("#modalListCartoes").modal('show');
     $scope.cartoesDisponiveis = response.data;
   }, function(response){
@@ -43,4 +42,30 @@ $scope.getCartoesDisp = function () {
   }
 );
 }
-  });
+
+$scope.cartaoAdd;
+
+$scope.getCartaoById = function (id) {
+  $http.get("http://localhost:8888/cartao/findById?id=" +id).then(function(response){
+    $("#modalListCartoes").modal('show');
+    $scope.cartaoAdd = response.data;
+  }, function(response){
+       $scope.name = "Ocorreu um erro ao se conectar ao servidor";
+  }
+);
+}
+
+$scope.setCartaoPessoa = function (idCartao) {
+  $scope.pessoa
+  $http.get("http://localhost:8888/cartao/addPessoaCartao?idCartao="+ idCartao +"&idPessoa="+idPessoa).then(function(response){
+    $scope.loadCartoesPessoa();
+    $('#modalListCartoes').modal('toggle')
+  }, function(response){
+       $scope.name = "Ocorreu um erro ao se conectar ao servidor";
+  }
+);
+}
+
+
+
+});
