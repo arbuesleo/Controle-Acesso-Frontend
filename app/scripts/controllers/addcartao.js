@@ -9,6 +9,7 @@
  */
 angular.module('controleAcessoAppApp')
   .controller('AddcartaoCtrl', function ($scope, $http, $location) {
+    $('#alertErro').hide();
     $scope.cartaoAdd ={
       "tag": "",
       "status": "A",
@@ -22,7 +23,7 @@ angular.module('controleAcessoAppApp')
                $scope.$apply();
             });
         }, function(response){
-             $scope.name = "Ocorreu um erro ao se conectar ao servidor";
+              console.log("Erro srv " + response.status " - " + response.statusText);
         }
       );
     }

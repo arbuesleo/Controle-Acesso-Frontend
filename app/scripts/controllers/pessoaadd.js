@@ -9,6 +9,8 @@
  */
 angular.module('controleAcessoAppApp')
   .controller('PessoaeditaddCtrl', function ($scope, $http, $location) {
+    $('#alertErro').hide();
+
     $scope.pessoaAdd ={
     "idPEssoa": 0,
     "nome": "",
@@ -35,7 +37,7 @@ angular.module('controleAcessoAppApp')
         $scope.msgModal = "Registro Alterado com Sucesso!";
           $('#incluidoSucesso').modal('show');
       }, function(response){
-           $scope.name = "Ocorreu um erro ao se conectar ao servidor";
+        console.log("Erro srv " + response.status " - " + response.statusText);
       }
     );
   }

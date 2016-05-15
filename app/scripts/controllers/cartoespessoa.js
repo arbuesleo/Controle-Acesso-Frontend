@@ -15,7 +15,7 @@ angular.module('controleAcessoAppApp')
       $http.get("http://localhost:8888/pessoa/finbById?id="+ idPessoa).then(function(response){
           $scope.pessoa = response.data;
       }, function(response){
-           $scope.name = "Ocorreu um erro ao se conectar ao servidor";
+           console.log("Erro srv " + response.status " - " + response.statusText);
       }
     );
   }
@@ -27,7 +27,7 @@ angular.module('controleAcessoAppApp')
     $http.get("http://localhost:8888/cartao/removePessoaCartao?id="+ idCartao).then(function(response){
       $scope.loadCartoesPessoa();
     }, function(response){
-         $scope.name = "Ocorreu um erro ao se conectar ao servidor";
+        console.log("Erro srv " + response.status " - " + response.statusText);
     }
   );
 }
@@ -38,7 +38,8 @@ $scope.getCartoesDisp = function () {
     $("#modalListCartoes").modal('show');
     $scope.cartoesDisponiveis = response.data;
   }, function(response){
-       $scope.name = "Ocorreu um erro ao se conectar ao servidor";
+    $('#alertErro').text('Ocorreu um erro ao preocessar sua Requisção: ' + response.status + " - " + response.statusText);
+    $('#alertErro').show();
   }
 );
 }
@@ -50,7 +51,8 @@ $scope.getCartaoById = function (id) {
     $("#modalListCartoes").modal('show');
     $scope.cartaoAdd = response.data;
   }, function(response){
-       $scope.name = "Ocorreu um erro ao se conectar ao servidor";
+    $('#alertErro').text('Ocorreu um erro ao preocessar sua Requisção: ' + response.status + " - " + response.statusText);
+    $('#alertErro').show();
   }
 );
 }
@@ -61,11 +63,12 @@ $scope.setCartaoPessoa = function (idCartao) {
     $scope.loadCartoesPessoa();
     $('#modalListCartoes').modal('toggle')
   }, function(response){
-       $scope.name = "Ocorreu um erro ao se conectar ao servidor";
+    $('#alertErro').text('Ocorreu um erro ao preocessar sua Requisção: ' + response.status + " - " + response.statusText);
+    $('#alertErro').show();
   }
 );
 }
 
-
+$('#alertErro').hide();
 
 });

@@ -9,13 +9,14 @@
  */
 angular.module('controleAcessoAppApp')
   .controller('PessoaCtrl', function ($scope, $http, loadEditPessoa, loadEditCartoesPessoa) {
+     $('#alertErro').hide();
     $scope.nomeFiltro = "";
 
     $scope.getAllPessoas = function (){
         $http.get("http://localhost:8888/pessoa/findAll").then(function(response){
   			     $scope.pessoas = response.data;
   		  }, function(response){
-  			     $scope.name = "Ocorreu um erro ao se conectar ao servidor";
+          console.log("Erro srv " + response.status " - " + response.statusText);
   		  }
   		);
     }
