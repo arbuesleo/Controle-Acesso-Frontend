@@ -17,6 +17,7 @@ angular.module('controleAcessoAppApp')
     }
 
     $scope.saveCartao = function (){
+        $scope.cartaoAdd.tag.toUpperCase();
         $http.post("http://localhost:8888/cartao/add", $scope.cartaoAdd).then(function(response){
             $('#incluidoSucesso').modal('show').on('hidden.bs.modal', function(event) {
                $location.path("/listCartoes");
