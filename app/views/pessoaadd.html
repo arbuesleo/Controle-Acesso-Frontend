@@ -3,8 +3,8 @@
   <li><a href="#/pessoa">Pessoas</a></li>
   <li class="active">Adicionar Pessoa</li>
 </ol>
-        <div class="row-fluid">&nbsp;</div>
-          <form class="form-horizontal">
+        <div class="row-fluid formulario">&nbsp;</div>
+          <form class="form-horizontal formulario" name="formPessoa">
             <div class="form-group">
               <label for="cod" class="col-sm-2 control-label">Cod. :</label>
               <div class="col-sm-1">
@@ -14,7 +14,10 @@
             <div class="form-group">
               <label for="nome" class="col-sm-2 control-label">Nome :</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" id="nome" ng-model = "pessoaAdd.nome">
+                <input type="text" class="form-control" name="nome" ng-model = "pessoaAdd.nome" required="true" ng-minlength="5">
+              </div>
+              <div ng-show = "formPessoa.nome.$error.required">
+                  *
               </div>
             </div>
             <div class="form-group">
@@ -75,7 +78,7 @@
 
             <div class="col-sm-offset-2 col-sm-10">
 
-              <button type="button" class="btn btn-success" ng-click="savePessoa()">
+              <button type="button" class="btn btn-success" ng-click="savePessoa(formPessoa.$valid)">
                 <span class="glyphicon glyphicon-floppy-saved"></span> Salvar
               </button>
 

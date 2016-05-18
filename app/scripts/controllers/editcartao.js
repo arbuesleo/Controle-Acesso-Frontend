@@ -19,7 +19,7 @@ $scope.loadPesoaInService = function(){
 $scope.loadPesoaInService();
 
       $scope.saveCartao = function (){
-        $scope.cartaoAdd.tag.toUpperCase();
+        $scope.cartaoEdit.tag.toUpperCase();
           $http.post("http://localhost:8888/cartao/add", $scope.cartaoEdit).then(function(response){
               $('#alterardoSucesso').modal('show');
                 $scope.loadPesoaInService();
