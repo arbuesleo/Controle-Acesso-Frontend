@@ -14,24 +14,25 @@
           <th>Nome Pessoa</th>
           <th>CPF Pessoa</th>
           <th>Manual</th>
+          <th>Liberado</th>
           <th>Justificativa</th>
-
         </tr>
-        <tr>
-          <td>Teste</td>
-          <td>teste</td>
-          <td>teste</td>
-          <td>teste</td>
+        <tr ng-repeat="acesso in listAcessos">
+          <td>{{acesso.dataHoraEntrada}}</td>
+          <td>{{acesso.tagCartao}}</td>
+          <td>{{acesso.nomePessoa}}</td>
+          <td>{{acesso.cpfPessoa}}</td>
           <td>
-            <input type="checkbox" aria-label="..." ng-disabled="true">
+            <input type="checkbox" aria-label="..." ng-disabled="true" ng-checked="acesso.manual">
           </td>
-          <td>teste</td>
+          <td>
+            <input type="checkbox" aria-label="..." ng-disabled="true" ng-checked="acesso.liberado">
+          </td>
+          <td>{{acesso.justificativa}}</td>
         </tr>
       </table>
     </div>
 </div>
 </div>
 
-
-<button type="button" class="btn btn-danger" ng-click="alterarAlert()">Alterar Alert</button>
-<button type="button" class="btn btn-success" ng-click="alterarAlertSuccess()">Alterar Alert</button>
+<button type="button" class="btn btn-primary" ng-click="">Liberar Acesso</button>
