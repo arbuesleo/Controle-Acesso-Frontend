@@ -18,7 +18,7 @@ angular.module('controleAcessoAppApp')
   $scope.savePessoa = function (){
       $http.post("http://localhost:8888/pessoa/add", $scope.pessoaAdd).then(function(response){
           $('#alterardoSucesso').modal('show');
-          $scope.pessoaAdd = loadEditPessoa.getPessoa().then(function(data){
+            $scope.pessoaAdd = loadEditPessoa.getPessoa().then(function(data){
               $scope.pessoaAdd = data;
           });
       }, function(response){

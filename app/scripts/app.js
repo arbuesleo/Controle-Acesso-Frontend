@@ -69,6 +69,11 @@ angular
         controller: 'VisualizaacessosCtrl',
         controllerAs: 'visualizaAcessos'
       })
+      .when('/pesquisaAcessos', {
+        templateUrl: 'views/pesquisaacessos.html',
+        controller: 'PesquisaacessosCtrl',
+        controllerAs: 'pesquisaAcessos'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -1,0 +1,48 @@
+<ol class="breadcrumb">
+  <li><a href="#/">Inicio</a></li>
+  <li class="active">Listagem Acessos</li>
+</ol>
+<div class="col-xs-12 form-inline">
+  <label for="dtIn" class=" control-label">De: </label>
+  <input type="date" class="form-control" id="dtIn" ng-model="dataInicial">
+  <label for="dtFim" class=" control-label"> Até: </label>
+  <input type="date" class="form-control" id="dtFim" ng-model="dataFinal">
+  <button type="button" class="btn btn-success" ng-click="getAcessos()">
+    <span class="glyphicon glyphicon-search"></span> Buscar
+  </button>
+<div>
+  <div class="row-fluid">&nbsp;</div>
+<div class="row-fluid">
+  <div>
+    <div class="panel panel-default" ng-show="tabelaVisible">
+        <div class="panel-heading" align="center">
+          <label for="filtro" class=" control-label">Pesquisar: </label>
+          <input type="text" class="form-control" id="filtro" ng-model="filtro">
+        </div>
+      <table class="table table-striped table-bordered">
+        <tr>
+          <th>Data Hora Entrada</th>
+          <th>Tag Cartao</th>
+          <th>Nome Pessoa</th>
+          <th>CPF Pessoa</th>
+          <th>Manual</th>
+          <th>Liberado</th>
+          <th>Justificativa</th>
+        </tr>
+        <tr ng-repeat="acesso in listAcessos | filter:filtro">
+          <td>{{acesso.dataHoraEntrada}}</td>
+          <td>{{acesso.tagCartao}}</td>
+          <td>{{acesso.nomePessoa}}</td>
+          <td>{{acesso.cpfPessoa}}</td>
+          <td>
+            <input type="checkbox" aria-label="..." ng-disabled="true" ng-checked="acesso.manual">
+          </td>
+          <td>
+            <input type="checkbox" aria-label="..." ng-disabled="true" ng-checked="acesso.liberado">
+          </td>
+          <td>{{acesso.justificativa}}</td>
+        </tr>
+      </table>
+    </div>
+</div>
+</div>
