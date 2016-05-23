@@ -11,6 +11,19 @@ angular.module('controleAcessoAppApp')
   .controller('VisualizaacessosCtrl', function ($scope, $http, $timeout) {
     var contador = 3;
     var promise;
+
+    $scope.acessoMan = {
+    "idAcesso":0,
+    "manual": true,
+    "nomePessoa": "teste",
+    "cpfPessoa": "111.111.111-11",
+    "justificativa": "Teste Liberação Manual",
+    "loguinLiberacao": "Administrador",
+    "liberado": true,
+    "mensagem": "Acesso Liberado Manualmente"
+  }
+
+
     function ativarRefresh() {
      contador--;
      if (contador === 0) {
@@ -48,4 +61,16 @@ angular.module('controleAcessoAppApp')
      }
        $('#statusAcesso').addClass('alert-success').text(msg);
     }
+
+
+
+      $scope.acessoManual = function (){
+        $http.post("http://localhost:8888/acesso/registrarAcessoManual", $scope.acessoMan).then(function(response){
+            websocket.send("Teste");
+          }, function(response){
+            console.log("Erro srv " + response.status + " - " + response.statusText);
+          }
+        );
+      }
+
   });
