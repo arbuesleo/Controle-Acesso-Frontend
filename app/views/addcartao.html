@@ -24,11 +24,20 @@
       </div>
     </div>
       <div class="form-group">
-          <label for="situacao" class="col-sm-2 control-label">Situação :</label>
-          <div class="col-xs-8">
-            <input type="radio" ng-model="cartaoAdd.status" value = "A"> Ativo
-            <input type="radio" ng-model="cartaoAdd.status" value = "B"> Bloqueado
-            <input type="radio" ng-model="cartaoAdd.status" value = "P"> Perdido
+
+          <div class="col-sm-12" id="situacao">
+            <label for="situacao" class="col-sm-2 control-label">Situação :</label>
+            <div>
+                <input type="radio" ng-model="cartaoAdd.status" value = "A"> Ativo
+            </div>
+            <div>
+                  <input type="radio" ng-model="cartaoAdd.status" value = "B"> Bloqueado
+            </div>
+            <div class="col-sm-offset-2">
+                  <input type="radio" ng-model="cartaoAdd.status" value = "P"> Perdido
+            </div>
+
+
           </div>
       </div>
 

@@ -71,30 +71,40 @@
         </div>
       </div>
 
-      <div class="form-group">
-          <label for="situacao" class="col-sm-2 control-label">Situação :</label>
-          <div class="col-xs-8">
-            <input type="radio" ng-model="pessoaAdd.ativo" ng-value = "true" id="situacao"> Ativo
-            <input type="radio" ng-model="pessoaAdd.ativo" ng-value = "false"> Bloqueado
-          </div>
-      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-12">
+        <label for="situacao" class="col-sm-2 control-label">Situação :</label>
+
+          <div class="col-xs-offset-1">
+          <input type="radio" ng-model="pessoaAdd.ativo" ng-value = "true" id="situacao"> Ativo
+        </div>
+        <div class="col-xs-offset-1">
+          <input type="radio" ng-model="pessoaAdd.ativo" ng-value = "false"> Bloqueado
+        </div>
+
+    </div>
+    </div>
+
 
     <div class="col-sm-offset-1 col-sm-11">
 
-      <button type="button" class="btn btn-success" ng-click="savePessoa()">
-        <span class="glyphicon glyphicon-floppy-saved"></span> Salvar
+    <button type="button" class="btn btn-success" ng-click="savePessoa()">
+      <span class="glyphicon glyphicon-floppy-saved"></span> Salvar
+    </button>
+    <button type="button" class="btn btn-danger" ng-click="confirmExclusao()">
+      <span class="glyphicon glyphicon-floppy-saved"></span> Excluir
+    </button>
+    <a ng-href="#/pessoa">
+      <button type="button" class="btn btn-primary" ngRoute="#/pessoaEditAdd">
+        <span class="glyphicon glyphicon-log-out"></span> Sair
       </button>
-      <button type="button" class="btn btn-danger" ng-click="confirmExclusao()">
-        <span class="glyphicon glyphicon-floppy-saved"></span> Excluir
-      </button>
-      <a ng-href="#/pessoa">
-        <button type="button" class="btn btn-primary" ngRoute="#/pessoaEditAdd">
-          <span class="glyphicon glyphicon-log-out"></span> Sair
-        </button>
-      </a>
-    </div>
+    </a>
 
 </form>
+
+
 
 
 <div class="modal fade bs-example-modal-sm" role="dialog" data-target="alterardoSucesso" data-backdrop="static" id="alterardoSucesso">

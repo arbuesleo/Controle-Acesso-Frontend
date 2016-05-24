@@ -16,9 +16,6 @@
               <div class="col-sm-4">
                 <input type="text" class="form-control" name="nome" ng-model = "pessoaAdd.nome" required="true" ng-minlength="5">
               </div>
-              <div ng-show = "formPessoa.nome.$error.required">
-                  *
-              </div>
             </div>
             <div class="form-group">
               <label for="cpf" class="col-sm-2 control-label">CPF :</label>
@@ -68,11 +65,17 @@
                   <input type="date" class="form-control" id="dataNasc" ng-model = "pessoaAdd.dataNascimento" >
                 </div>
             </div>
+
               <div class="form-group">
-                  <label for="situacao" class="col-sm-2 control-label">Situação :</label>
-                  <div class="col-xs-8">
+
+                  <div class="col-sm-12">
+                    <label for="situacao" class="col-sm-2 control-label">Situação :</label>
+                    <div class="col-xs-offset-1">
                     <input type="radio" ng-model="pessoaAdd.ativo" ng-value = "true" id="situacao"> Ativo
+                  </div>
+                    <div class="col-xs-offset-1">
                     <input type="radio" ng-model="pessoaAdd.ativo" ng-value = "false"> Bloqueado
+                  </div>
                   </div>
               </div>
 
