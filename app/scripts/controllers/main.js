@@ -9,6 +9,9 @@
  */
 angular.module('controleAcessoAppApp')
   .controller('MainCtrl', function ($scope, $http) {
+
+
+
     var options = {
       responsive: true,
       //Boolean - Whether to show lines for each scale point

@@ -8,7 +8,7 @@
  * Controller of the controleAcessoAppApp
  */
 angular.module('controleAcessoAppApp')
-  .controller('AddcartaoCtrl', function ($scope, $http, $location) {
+  .controller('AddcartaoCtrl', function ($scope, $http, $location, cartao) {
 
     $scope.cartaoAdd ={
       "tag": "",
@@ -16,17 +16,12 @@ angular.module('controleAcessoAppApp')
       "descricao": ""
     }
 
-    $scope.saveCartao = function (){
-        $scope.cartaoAdd.tag.toUpperCase();
-        $http.post("http://localhost:8888/cartao/add", $scope.cartaoAdd).then(function(response){
-            $('#incluidoSucesso').modal('show').on('hidden.bs.modal', function(event) {
-               $location.path("/listCartoes");
-               $scope.$apply();
-            });
-        }, function(response){
-              console.log("Erro srv " + response.status + " - " + response.statusText);
-        }
-      );
+    $scope.save = function (){
+      cartao.saveCartao($scope.cartaoAdd).then(function(response){
+        $('#incluidoSucesso').modal('show').on('hidden.bs.modal', function(event) {
+           $location.path("/listCartoes");
+           $scope.$apply();
+        });
+      });
     }
-
   });

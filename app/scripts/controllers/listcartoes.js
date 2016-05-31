@@ -8,20 +8,20 @@
  * Controller of the controleAcessoAppApp
  */
 angular.module('controleAcessoAppApp')
-  .controller('ListcartoesCtrl', function ($scope, $http, loadEditCartao) {
+  .controller('ListcartoesCtrl', function ($scope, $http, cartao) {
 
     $scope.nomeFiltro = "";
-    $scope.getAllCartoes = function (){
-        $http.get("http://localhost:8888/cartao/findAll").then(function(response){
-             $scope.cartoes = response.data;
-        }, function(response){
-          console.log("Erro srv " + response.status + " - " + response.statusText);
-        }
-      );
+
+    $scope.listaCartoes = function(){
+      cartao.getAllCartoes().then(function(data){
+        $scope.cartoes = data;
+      });
     }
-   $scope.getAllCartoes();
 
    $scope.setIdEdit = function (id){
-     loadEditCartao.setId(id);
+     cartao.setIdEdit(id);
    }
+
+   $scope.listaCartoes();
+
   });

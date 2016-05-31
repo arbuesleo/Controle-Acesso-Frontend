@@ -77,4 +77,13 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
+
+  }).run(function ($rootScope){
+    var BASE_URL = "http://localhost:8888";
+    $rootScope.urls = {
+        cartao : BASE_URL + "/cartao",
+        pessoa : BASE_URL + "/pessoa",
+        acesso : BASE_URL + "/acesso"
+    };
   });
