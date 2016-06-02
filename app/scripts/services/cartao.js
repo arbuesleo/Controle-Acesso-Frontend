@@ -60,5 +60,34 @@ angular.module('controleAcessoAppApp')
               console.log("Erro srv " + response.status + " - " + response.statusText);
           }
         );
+      }
+
+      this.removePessoaCartao = function (idCartao) {
+        return $http.get(url + "/removePessoaCartao?id="+ idCartao).then(function(response){
+          return response;
+        }, function(response){
+            console.log("Erro srv " + response.status + " - " + response.statusText);
         }
+      );
+    }
+
+      this.getCartoesDisp = function () {
+      return  $http.get(url + "/findDisponiveis").then(function(response){
+          return response.data;
+        }, function(response){
+          console.log("Erro srv " + response.status + " - " + response.statusText);
+        }
+      );
+    }
+
+    this.setPessoaCartao = function (idCartao, idPessoa) {
+      return $http.get(url + "/addPessoaCartao?idCartao="+ idCartao +"&idPessoa="+idPessoa).then(function(response){
+        return response.data;
+      }, function(response){
+      console.log("Erro srv " + response.status + " - " + response.statusText);
+      }
+    );
+    }
+
+
   });

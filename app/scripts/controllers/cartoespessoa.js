@@ -8,63 +8,51 @@
  * Controller of the controleAcessoAppApp
  */
 angular.module('controleAcessoAppApp')
-  .controller('CartoespessoaCtrl', function ($scope, $http, loadEditPessoa) {
-    var idPessoa = loadEditPessoa.getId();
+  .controller('CartoespessoaCtrl', function ($scope, $http,  pessoa, cartao) {
+
     $scope.pessoa;
+
     $scope.loadCartoesPessoa = function () {
-      $http.get("http://localhost:8888/pessoa/finbById?id="+ idPessoa).then(function(response){
-          $scope.pessoa = response.data;
-      }, function(response){
-           console.log("Erro srv " + response.status + " - " + response.statusText);
-      }
-    );
+      pessoa.getPessoa(pessoa.idPessoaEdit).then(function(data){
+        $scope.pessoa = data;
+      });
   }
 
   $scope.loadCartoesPessoa();
 
   $scope.removeCartao = function (idCartao) {
+    cartao.removePessoaCartao(idCartao).then(function(data){
+        $scope.loadCartoesPessoa();
+    });
+}
 
-    $http.get("http://localhost:8888/cartao/removePessoaCartao?id="+ idCartao).then(function(response){
-      $scope.loadCartoesPessoa();
-    }, function(response){
-        console.log("Erro srv " + response.status + " - " + response.statusText);
+  $scope.listCartoesDisp = function () {
+       cartao.getCartoesDisp().then(function(data){
+         $("#modalListCartoes").modal('show');
+         $scope.cartoesDisponiveis = data;
+       });
     }
-  );
-}
-
-$scope.getCartoesDisp = function () {
-
-  $http.get("http://localhost:8888/cartao/findDisponiveis").then(function(response){
-    $("#modalListCartoes").modal('show');
-    $scope.cartoesDisponiveis = response.data;
-  }, function(response){
-    console.log("Erro srv " + response.status + " - " + response.statusText);
-  }
-);
-}
 
 $scope.cartaoAdd;
 
 $scope.getCartaoById = function (id) {
-  $http.get("http://localhost:8888/cartao/findById?id=" +id).then(function(response){
+
+  cartao.getCartao(id).then(function(data){
     $("#modalListCartoes").modal('show');
     $scope.cartaoAdd = response.data;
-  }, function(response){
-    console.log("Erro srv " + response.status + " - " + response.statusText);
-  }
-);
+  });
+
 }
 
 $scope.setCartaoPessoa = function (idCartao) {
-  $scope.pessoa
-  $http.get("http://localhost:8888/cartao/addPessoaCartao?idCartao="+ idCartao +"&idPessoa="+idPessoa).then(function(response){
-    $scope.loadCartoesPessoa();
-    $('#modalListCartoes').modal('toggle')
-  }, function(response){
-  console.log("Erro srv " + response.status + " - " + response.statusText);
-  }
-);
+
+cartao.setPessoaCartao(idCartao, pessoa.idPessoaEdit).then(function(data){
+  $scope.loadCartoesPessoa();
+  $('#modalListCartoes').modal('toggle')
+});
 }
+
+
 
 
 

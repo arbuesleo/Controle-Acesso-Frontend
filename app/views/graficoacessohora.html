@@ -1,0 +1,22 @@
+<ol class="breadcrumb">
+  <li><a href="#/">Inicio</a></li>
+  <li class="active">Grafico - Acessos por Hora</li>
+</ol>
+<div class="col-xs-12 form-inline">
+  <label for="dtIn" class=" control-label">De: </label>
+  <input type="date" class="form-control" id="dtIn" ng-model="dataInicial">
+  <label for="dtFim" class=" control-label"> Até: </label>
+  <input type="date" class="form-control" id="dtFim" ng-model="dataFinal">
+  <button type="button" class="btn btn-success" ng-click="carregraGrafico()">
+    <span class="glyphicon glyphicon-search"></span> Buscar
+  </button>
+</div>
+
+
+<div class="col-sm-offset-2 col-xs-8" style="align:center">
+
+  <h3 class="col-sm-offset-3 hidden-xs">Acessos/Tentativas de Acesso por Hora <small>por período</small></h3>
+  <canvas id="GraficoLine" class="hidden-xs"></canvas>
+  <h4 class="col-sm-offset-3 hidden-sm hidden-md hidden-lg alert-danger">Relatório sem suporte para sua resolução.</h4>
+
+</div>

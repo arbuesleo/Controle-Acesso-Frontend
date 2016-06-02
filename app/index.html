@@ -33,13 +33,12 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" ng-href="#/">Inicio</a>
+            <a class="navbar-brand" ng-href="#/">Controle Acesso</a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a ng-href="#/visualizaAcessos">Controle Acesso</a></li>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros<span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -51,6 +50,7 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatórios<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a ng-href="#/pesquisaAcessos">Acessos</a></li>
+                  <li><a ng-href="#/graficoAcessoHora">Grafico - Acessos Por Hora</a></li>
                 </ul>
               </li>
             </ul>
@@ -90,7 +90,6 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/Chart.min.js"></script>
-        <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/pessoa.js"></script>
         <script src="scripts/controllers/pessoaadd.js"></script>
@@ -99,12 +98,13 @@
         <script src="scripts/controllers/addcartao.js"></script>
         <script src="scripts/controllers/editcartao.js"></script>
         <script src="scripts/controllers/cartoespessoa.js"></script>
-        <script src="scripts/services/loadeditcartoespessoa.js"></script>
         <script src="scripts/controllers/visualizaacessos.js"></script>
         <script src="scripts/controllers/pesquisaacessos.js"></script>
         <script src="scripts/services/cartao.js"></script>
         <script src="scripts/services/acesso.js"></script>
         <script src="scripts/services/pessoa.js"></script>
+        <script src="scripts/controllers/graficoacessohora.js"></script>
+        <script src="scripts/services/utils.js"></script>
         <!-- endbuild -->
 </body>
 </html>

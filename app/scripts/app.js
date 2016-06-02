@@ -21,8 +21,8 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/visualizaacessos.html',
-        controller: 'controleAcessoApp',
-        controllerAs: 'VisualizaacessosCtrl'
+        controller: 'VisualizaacessosCtrl',
+        controllerAs: 'visualizaacessos'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -74,11 +74,14 @@ angular
         controller: 'PesquisaacessosCtrl',
         controllerAs: 'pesquisaAcessos'
       })
+      .when('/graficoAcessoHora', {
+        templateUrl: 'views/graficoacessohora.html',
+        controller: 'GraficoacessohoraCtrl',
+        controllerAs: 'graficoAcessoHora'
+      })
       .otherwise({
         redirectTo: '/'
       });
-
-
   }).run(function ($rootScope){
     var BASE_URL = "http://localhost:8888";
     $rootScope.urls = {
