@@ -8,7 +8,7 @@
  * Controller of the controleAcessoAppApp
  */
 angular.module('controleAcessoAppApp')
-  .controller('VisualizaacessosCtrl', function ($scope, $http, $timeout) {
+  .controller('VisualizaacessosCtrl', function ($scope, $http, $timeout, acesso) {
     var contador = 3;
     var promise;
 
@@ -34,22 +34,20 @@ angular.module('controleAcessoAppApp')
    }
 
     $scope.getAcessos = function(){
-      $http.get("http://localhost:8888/acesso/findUltimosDez").then(function(response){
-        var i;
-        $scope.listAcessos = response.data;
+      acesso.getUltimosDezAcessos().then(function(data){
+        $scope.listAcessos = data;
         $scope.ultimoAcesso = $scope.listAcessos[0];
         if($scope.ultimoAcesso.liberado){
           $scope.alterarAlertSuccess($scope.ultimoAcesso.mensagem);
         }else {
           $scope.alterarAlertDanger($scope.ultimoAcesso.mensagem);
         }
-      }, function(response){
-      console.log("Erro srv " + response.status + " - " + response.statusText);
-      }
-    );
+      });
     }
+    
 
     ativarRefresh();
+
 
     $scope.alterarAlertDanger = function (msg){
        $('#statusAcesso').addClass('alert-danger').text(msg);
@@ -64,13 +62,5 @@ angular.module('controleAcessoAppApp')
 
 
 
-      $scope.acessoManual = function (){
-        $http.post("http://localhost:8888/acesso/registrarAcessoManual", $scope.acessoMan).then(function(response){
-            websocket.send("Teste");
-          }, function(response){
-            console.log("Erro srv " + response.status + " - " + response.statusText);
-          }
-        );
-      }
 
   });

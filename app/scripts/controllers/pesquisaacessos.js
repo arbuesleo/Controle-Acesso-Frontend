@@ -8,20 +8,13 @@
  * Controller of the controleAcessoAppApp
  */
 angular.module('controleAcessoAppApp')
-  .controller('PesquisaacessosCtrl', function ($scope, $http) {
+  .controller('PesquisaacessosCtrl', function ($scope, $http, acesso) {
     $scope.tabelaVisible = false;
     $scope.getAcessos = function(){
-      $scope.tabelaVisible = true;
-      var teste = $scope.dataInicial.toLocaleString();
-      var url = "http://localhost:8888/acesso/findByDate?dtIn=" + $scope.dataInicial.toLocaleString() + "&dtFim=" + $scope.dataFinal.toLocaleString();
-      $http.get(url).then(function(response){
-        var i;
-        $scope.listAcessos = response.data;
-
-      }, function(response){
-        console.log("Erro srv " + response.status + " - " + response.statusText);
-      }
-    );
-  }
+      acesso.getAcessosByData($scope.dataInicial, $scope.dataFinal).then(function(data){
+          $scope.tabelaVisible = true;
+          $scope.listAcessos = data;
+      });
+    }
 
   });
