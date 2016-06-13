@@ -16,7 +16,8 @@ angular.module('controleAcessoAppApp')
       "descricao": ""
     }
 
-    $scope.save = function (){
+    $scope.save = function (valido){
+      if(cartao.validaForm(valido)){
       cartao.saveCartao($scope.cartaoAdd).then(function(response){
         $('#incluidoSucesso').modal('show').on('hidden.bs.modal', function(event) {
            $location.path("/listCartoes");
@@ -24,4 +25,5 @@ angular.module('controleAcessoAppApp')
         });
       });
     }
+  }
   });

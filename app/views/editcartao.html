@@ -4,7 +4,7 @@
   <li class="active">Editar Cartão</li>
 </ol>
 <div class="row-fluid">&nbsp;</div>
-  <form class="form-horizontal">
+  <form class="form-horizontal formulario" name="formCartao">
     <div class="form-group">
       <label for="cod" class="col-sm-2 control-label">Cod. :</label>
       <div class="col-sm-1">
@@ -14,13 +14,14 @@
     <div class="form-group">
       <label for="nome" class="col-sm-2 control-label">Descrição :</label>
       <div class="col-sm-2">
-        <input type="text" class="form-control" id="nome" ng-model = "cartaoEdit.descricao">
+        <input type="text" class="form-control" id="nome" ng-model = "cartaoEdit.descricao" name="descricao" required="true">
+        <p ng-show="formCartao.descricao.$invalid && !formCartao.descricao.$pristine" class="help-block">A descrição é obrigatória!</p>
       </div>
     </div>
     <div class="form-group">
       <label for="cpf" class="col-sm-2 control-label">TAG :</label>
       <div class="col-sm-2">
-        <input type="text" class="form-control" id="cpf" ng-model = "cartaoEdit.tag">
+        <input type="text" class="form-control" id="cpf" ng-model = "cartaoEdit.tag" name="tag" ng-disabled="true">
       </div>
     </div>
       <div class="form-group">
@@ -40,7 +41,7 @@
 
     <div class="col-sm-offset-1 col-sm-11">
 
-      <button type="button" class="btn btn-success" ng-click="save()">
+      <button type="button" class="btn btn-success" ng-click="save(formCartao.$valid)">
         <span class="glyphicon glyphicon-floppy-saved"></span> Salvar
       </button>
       <button type="button" class="btn btn-danger" ng-click="confirmExclusao()">

@@ -89,5 +89,16 @@ angular.module('controleAcessoAppApp')
     );
     }
 
+    this.validaForm = function(valid){
+
+      if(valid){
+        return true;
+      }else{
+        
+        return false;
+      }
+
+    }
+
 
   });

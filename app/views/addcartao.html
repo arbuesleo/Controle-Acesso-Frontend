@@ -4,7 +4,7 @@
   <li class="active">Adicionar Cartão</li>
 </ol>
 <div class="row-fluid">&nbsp;</div>
-  <form class="form-horizontal">
+  <form class="form-horizontal formulario" name="formCartao">
     <div class="form-group">
       <label for="cod" class="col-sm-2 control-label">Cod. :</label>
       <div class="col-sm-1">
@@ -14,13 +14,15 @@
     <div class="form-group">
       <label for="nome" class="col-sm-2 control-label">Descrição :</label>
       <div class="col-sm-2">
-        <input type="text" class="form-control" id="nome" ng-model = "cartaoAdd.descricao">
+        <input type="text" class="form-control" id="nome" name="descricao" ng-model = "cartaoAdd.descricao" required="true">
+        <p ng-show="formCartao.descricao.$invalid && !formCartao.descricao.$pristine" class="help-block">A descrição é obrigatória!</p>
       </div>
     </div>
     <div class="form-group">
       <label for="cpf" class="col-sm-2 control-label">TAG :</label>
       <div class="col-sm-2">
-        <input type="text" class="form-control" id="cpf" ng-model = "cartaoAdd.tag">
+        <input type="text" class="form-control" id="tag" ng-model = "cartaoAdd.tag" required="true" ng-minlength="8" name="tag">
+        <p ng-show="formCartao.tag.$invalid && !formCartao.tag.$pristine" class="help-block">A TAG é obrigatória, e no minimo 8 caracteres!</p>
       </div>
     </div>
       <div class="form-group">
@@ -43,7 +45,7 @@
 
     <div class="col-sm-offset-2 col-sm-10">
 
-      <button type="button" class="btn btn-success" ng-click="save()">
+      <button type="button" class="btn btn-success" ng-click="save(formCartao.$valid)">
         <span class="glyphicon glyphicon-floppy-saved"></span> Salvar
       </button>
 

@@ -15,54 +15,63 @@
               <label for="nome" class="col-sm-2 control-label">Nome :</label>
               <div class="col-sm-4">
                 <input type="text" class="form-control" name="nome" ng-model = "pessoaAdd.nome" required="true" ng-minlength="5">
+                <p ng-show="formPessoa.nome.$invalid && !formPessoa.nome.$pristine" class="help-block">O nome é obrigatório e deve conter mais de 5 caracteres!</p>
               </div>
             </div>
             <div class="form-group">
               <label for="cpf" class="col-sm-2 control-label">CPF :</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" id="cpf" ng-model = "pessoaAdd.cpf">
+                <input type="number" class="form-control" id="cpf" ng-model = "pessoaAdd.cpf" ng-minlength="11" ng-maxlength="11" required="true" name="cpf">
+                <p ng-show="formPessoa.cpf.$invalid && !formPessoa.cpf.$pristine" class="help-block">O CPF é obrigatório, apenas números e deve conter 11 caracteres!</p>
               </div>
             </div>
             <div class="form-group">
               <label for="rg" class="col-sm-2 control-label">RG :</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" id="rg" ng-model = "pessoaAdd.rg">
+                <input type="number" class="form-control" id="rg" ng-model = "pessoaAdd.rg" required="true" name="rg">
+                <p ng-show="formPessoa.rg.$invalid && !formPessoa.rg.$pristine" class="help-block">O RG deve ser numerico e é obrigatório!</p>
               </div>
             </div>
             <div class="form-group">
               <label for="telFix" class="col-sm-2 control-label">Telefone Fixo :</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" id="telFix" ng-model = "pessoaAdd.telefoneFixo">
+                <input type="number" class="form-control" id="telFix" ng-model = "pessoaAdd.telefoneFixo" ng-minlength="10" ng-maxlength="10" name="telFix">
+                <p ng-show="formPessoa.telFix.$invalid && !formPessoa.telFix.$pristine" class="help-block">O telefone deve conter 10 caracteres incluindo o DDD!</p>
               </div>
             </div>
             <div class="form-group">
               <label for="telCel" class="col-sm-2 control-label">Telefone Celular :</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" id="telCel" ng-model = "pessoaAdd.telefoneCelular">
+                <input type="number" class="form-control" id="telCel" ng-model = "pessoaAdd.telefoneCelular" ng-minlength="11" ng-maxlength="11" name="telCel">
+                <p ng-show="formPessoa.telCel.$invalid && !formPessoa.telCel.$pristine" class="help-block">O celular deve conter 11 caracteres incluindo o DDD!</p>
               </div>
             </div>
             <div class="form-group">
               <label for="email" class="col-sm-2 control-label">E-Mail :</label>
               <div class="col-sm-2">
-                <input type="email" class="form-control" id="email" ng-model = "pessoaAdd.email">
+                <input type="email" class="form-control" id="email" ng-model = "pessoaAdd.email" name = "email">
+                <p ng-show="formPessoa.email.$invalid && !formPessoa.email.$pristine" class="help-block">Digite um e-mail válido!</p>
               </div>
             </div>
             <div class="form-group">
               <label for="login" class="col-sm-2 control-label">Login :</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" id="login" ng-model = "pessoaAdd.loguin">
+                <input type="text" class="form-control" id="login" ng-model = "pessoaAdd.loguin" required="true" ng-minlength="5" name="loguin">
+                <p ng-show="formPessoa.loguin.$invalid && !formPessoa.loguin.$pristine" class="help-block">Loguin obrigatório e deve conter mais que 5 caracteres!</p>
               </div>
             </div>
             <div class="form-group">
               <label for="senha" class="col-sm-2 control-label">Senha :</label>
               <div class="col-sm-2">
-                <input type="password" class="form-control" id="senha" ng-model = "pessoaAdd.senha">
+                <input type="password" class="form-control" id="senha" ng-model = "pessoaAdd.senha" required="true" ng-minlength="6" name="senha">
+                <p ng-show="formPessoa.senha.$invalid && !formPessoa.senha.$pristine" class="help-block">Senha obrigatória e deve conter mais que 6 caracteres!</p>
               </div>
             </div>
             <div class="form-group">
                 <label for="dataNasc" class="col-sm-2 control-label">Data Nasc. :</label>
                 <div class="col-sm-2">
-                  <input type="date" class="form-control" id="dataNasc" ng-model = "pessoaAdd.dataNascimento" >
+                  <input type="date" class="form-control" id="dataNasc" ng-model = "pessoaAdd.dataNascimento" required="true" name= "dataNasc">
+                  <p ng-show="formPessoa.dataNasc.$invalid && !formPessoa.dataNasc.$pristine" class="help-block">Data de Nascimento é obrigatoria!</p>
                 </div>
             </div>
 

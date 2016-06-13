@@ -19,12 +19,15 @@ angular.module('controleAcessoAppApp')
 
     $scope.loadCartaoEdit();
 
-      $scope.save = function (){
-      cartao.saveCartao($scope.cartaoEdit).then(function(data){
+      $scope.save = function (valido){
+          if(cartao.validaForm(valido)){
+            cartao.saveCartao($scope.cartaoEdit).then(function(data){
             $('#alterardoSucesso').modal('show');
             $scope.loadCartaoEdit();
-        });
+            });
+          }
       }
+
 
       $scope.confirmExclusao = function() {
         $('#confirmExclusao').modal('show');

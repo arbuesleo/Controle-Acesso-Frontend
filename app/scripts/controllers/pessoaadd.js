@@ -33,17 +33,13 @@ angular.module('controleAcessoAppApp')
   })
 
   $scope.save = function (valido){
-      if(valido){
-        console.log("enviado");
-      }else{
-        console.log("invalido");
-        return;
-      }
 
-      pessoa.savePessoa($scope.pessoaAdd).then(function(data){
-        $scope.msgModal = "Registro Alterado com Sucesso!";
-          $('#incluidoSucesso').modal('show');
-      });
+      if(pessoa.validaForm(valido)){
+        pessoa.savePessoa($scope.pessoaAdd).then(function(data){
+          $scope.msgModal = "Registro Alterado com Sucesso!";
+            $('#incluidoSucesso').modal('show');
+        });
+      }
   }
 
 

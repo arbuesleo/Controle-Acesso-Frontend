@@ -66,6 +66,16 @@ angular.module('controleAcessoAppApp')
     );
     }
 
+    this.validaForm = function(valid){
+
+      if(valid){
+        return true;
+      }else{
+        alert("Erro ao validar o form");
+        return false;
+      }
+
+    }
 
 
   });
